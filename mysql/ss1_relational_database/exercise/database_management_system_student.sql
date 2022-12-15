@@ -1,11 +1,11 @@
 create database my_database;
 
-create table Class(
+create table class(
   id int, 
   name varchar(45)
 );
 
-create table Teacher(
+create table teacher(
   id int, 
   name varchar(45), 
   age int, 
