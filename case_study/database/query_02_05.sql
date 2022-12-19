@@ -5,27 +5,20 @@ furama_resort;
 --  ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 
 SELECT *
-FROM nhan_vien nv
-WHERE substring_index(nv.ho_ten, ' ', 1) LIKE 'H%'
-   OR substring_index(nv.ho_ten, ' ', 1) LIKE 'T%'
-   OR substring_index(nv.ho_ten, ' ', 1) LIKE 'K%'
-    AND LENGTH(nv.ho_ten) <= 15;
+FROM nhan_vien
+WHERE 	
+		substring_index(ho_ten,' ',-1) LIKE 'H%' OR
+		substring_index(ho_ten,' ',-1) LIKE 'T%' OR
+		substring_index(ho_ten,' ',-1) LIKE 'K%' AND
+        CHARACTER_LENGTH(ho_ten) <= 15;
 
 -- 3.  Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà 
 -- Nẵng” hoặc “Quảng Trị”.
 
 SELECT *
-FROM khach_hang kh
-WHERE (
-    YEAR(
-    CURDATE()
-    ) - YEAR (kh.ngay_sinh) BETWEEN 18
-    AND 50
-    )
-  AND (
-            kh.dia_chi LIKE '%Đà Nẵng'
-        OR kh.dia_chi LIKE '%Quảng Trị'
-    );
+FROM khach_hang
+WHERE dia_chi LIKE '%Đà Nẵng' OR dia_chi LIKE '%Quảng Trị'
+				AND (YEAR(CURDATE()) - YEAR(ngay_sinh) BETWEEN 18 AND 50 );
 
 -- 4.  Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được 
 -- sắp xếp tăng dần theo số lần đặt phòng của khách hàng. Chỉ đếm những khách hàng nào có Tên loại 
