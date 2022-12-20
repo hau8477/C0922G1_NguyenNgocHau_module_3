@@ -11,9 +11,8 @@ FROM loai_dich_vu ldv
          JOIN hop_dong hd ON dv.ma_dich_vu = hd.ma_dich_vu
 WHERE dv.ma_dich_vu NOT IN (SELECT hd.ma_dich_vu
                             FROM hop_dong hd
-                            WHERE ( YEAR(hd.ngay_lam_hop_dong) = 2021) AND 
-									QUARTER(hd.ngay_lam_hop_dong) = 1
-								)
+                            WHERE ( YEAR(hd.ngay_lam_hop_dong) = 2021) AND QUARTER(hd.ngay_lam_hop_dong) = 1
+)
 GROUP BY dv.ma_dich_vu;
 
 -- 7.  Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da,
