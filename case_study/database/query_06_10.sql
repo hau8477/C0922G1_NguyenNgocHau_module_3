@@ -1,4 +1,4 @@
-use
+USE
 furama_resort;
 
 -- 6.  Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue,
