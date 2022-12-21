@@ -88,4 +88,4 @@ WHERE nv.ma_nhan_vien IN (SELECT hd.ma_hop_dong
     hd.ngay_lam_hop_dong) BETWEEN 2020
   AND 2021)
 GROUP BY nv.ma_nhan_vien
-HAVING COUNT (IFNULL(hd.ma_nhan_vien, 0)) <= 3;
+HAVING COUNT(IFNULL(hd.ma_nhan_vien, 0)) <= 3;

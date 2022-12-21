@@ -58,7 +58,7 @@ FROM khach_hang;
 -- 9.  Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng
 --  trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 
-SELECT MONTH (hd.ngay_lam_hop_dong) AS thang, COUNT (hd.ma_khach_hang) AS so_luong_khach_hang
+SELECT MONTH (hd.ngay_lam_hop_dong) AS thang, COUNT(hd.ma_khach_hang) AS so_luong_khach_hang
 FROM hop_dong hd
 GROUP BY MONTH (hd.ngay_lam_hop_dong)
 ORDER BY MONTH (hd.ngay_lam_hop_dong);
