@@ -11,9 +11,8 @@ FROM loai_dich_vu ldv
          JOIN hop_dong hd ON dv.ma_dich_vu = hd.ma_dich_vu
 WHERE dv.ma_dich_vu NOT IN (SELECT hd.ma_dich_vu
                             FROM hop_dong hd
-                            WHERE ( YEAR(hd.ngay_lam_hop_dong) = 2021) AND 
-                            QUARTER(hd.ngay_lam_hop_dong) = 1
-)
+                            WHERE (YEAR(hd.ngay_lam_hop_dong) = 2021)
+                              AND QUARTER(hd.ngay_lam_hop_dong) = 1)
 GROUP BY dv.ma_dich_vu;
 
 -- 7.  Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da,
@@ -31,7 +30,7 @@ FROM loai_dich_vu ldv
          JOIN hop_dong hd ON dv.ma_dich_vu = hd.ma_dich_vu
 WHERE dv.ma_dich_vu NOT IN (SELECT hd.ma_dich_vu
                             FROM hop_dong hd
-                            WHERE ( YEAR(hd.ngay_lam_hop_dong) = 2021))
+                            WHERE (YEAR(hd.ngay_lam_hop_dong) = 2021))
 GROUP BY dv.ma_dich_vu;
 
 -- 8.  Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
@@ -59,7 +58,7 @@ FROM khach_hang;
 -- 9.  Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng
 --  trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 
-SELECT MONTH(hd.ngay_lam_hop_dong) AS thang, COUNT(hd.ma_khach_hang) AS so_luong_khach_hang
+SELECT MONTH (hd.ngay_lam_hop_dong) AS thang, COUNT (hd.ma_khach_hang) AS so_luong_khach_hang
 FROM hop_dong hd
 GROUP BY MONTH (hd.ngay_lam_hop_dong)
 ORDER BY MONTH (hd.ngay_lam_hop_dong);
