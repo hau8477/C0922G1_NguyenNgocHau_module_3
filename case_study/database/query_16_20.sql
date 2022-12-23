@@ -10,7 +10,7 @@ SQL_SAFE_UPDATES = 0;
 
 DELETE
 FROM nhan_vien nv
-WHERE nv.ma_nhan_vien NOT IN (SELECT ma_nhan_vien FROM hop_dong WHERE YEAR (ngay_lam_hop_dong)
+WHERE nv.ma_nhan_vien NOT IN (SELECT ma_nhan_vien FROM hop_dong WHERE YEAR(ngay_lam_hop_dong)
 								BETWEEN 2019 AND 2021);
 
 -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, chỉ cập nhật 
@@ -52,7 +52,9 @@ FOREIGN_KEY_CHECKS = 1;
 UPDATE dich_vu_di_kem dvdk
 SET gia = gia * 2
 WHERE dvdk.ma_dich_vu_di_kem IN (SELECT hdct.ma_dich_vu_di_kem
-                                 FROM hop_dong_chi_tiet hdct
+                                 FROM hop_dong_chi_tiet hdct 
+								 JOIN hop_dong hd ON hdct.ma_hop_dong = hd.ma_hop_dong
+                                 WHERE YEAR(hd.ngay_lam_hop_dong) = 2020
                                  GROUP BY hdct.ma_dich_vu_di_kem
                                  HAVING SUM(hdct.so_luong >= 10));
 
