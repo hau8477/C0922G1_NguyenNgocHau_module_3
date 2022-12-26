@@ -3,8 +3,8 @@ img{
     height: 90px;
 }
 
-span{
-    text-align: center;
+span:hover{
+    color: aqua;
 }
 
 /*Màn hình máy tính pc và tivi smart*/
@@ -85,3 +85,5 @@ body{
     font-family: Calibri, sans-serif;
     font-size: 20px;
 }
+
+
