@@ -19,9 +19,10 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
             rel="stylesheet"
     />
+    <link rel="stylesheet" href="../../../MDB5-STANDARD-UI-KIT-Free-6.0.1/css/mdb.min.css">
 </head>
 <body>
-<div class="vh-100 w-100">
+<div class="vh-100 w-100" style="box-sizing: border-box">
     <!--Header-->
     <div class="row">
         <!-- Navbar -->
@@ -186,9 +187,11 @@
                             <a class="nav-link" href="#">Support</a>
                         </li>
                         <li class="nav-item">
-                            <div class="btn btn-primary d-flex justify-content-center">
-                                <a class="nav-link" href="#" style="font-size: 100%;width: 80px;height: 28px">SHOP
-                                    DEAL</a>
+                            <div class="btn btn-outline-primary bg-primary text-bg-light;"
+                                 style="width: 100%;height: 90%">
+                                <a class="nav-link" href="#" style="font-size: 100%;">
+                                    SHOP DEAL
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -356,39 +359,160 @@
                 </h6>
             </div>
         </div>
-        <div class="row" style="background-color: #0a53be;padding: 5% 0 10% 5%;color: black">
-            <div>
-                <h3>Save on Surface deals</h3>
+        <div class="row" style="padding: 5% 0 10% 5%;color: black;height: 60%;">
+            <div class="row" style="height: 10%;padding-bottom: 5%;box-sizing: content-box">
+                <h2>Save on Surface deals</h2>
             </div>
-            <div>
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                    </div>
-                    <div class="carousel-inner" style="height: 30%;width: 30%;padding-left: 5%">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <img src="pc1.png" class="d-block w-100" alt="..." style="margin-left: 15%">
+            <div class="row" style="height: 80%">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="row">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                        </div>
+                        <div class="carousel-inner" style="height: 100%;padding-left: 10%;box-sizing: content-box">
+                            <div class="carousel-item active">
+                                <div style="width: 40%;height: 100%;">
+                                    <img src="pc1.png" class="d-block w-100" alt="..." style="height: 100%">
+                                </div>
+                                <div class="carousel-caption d-none d-md-block"
+                                     style="padding-left: 25%;color: black;height: 100%;width: 55%;font-family: 'Segoe UI',serif">
+                                    <h5>Save up to $646 on Surface Laptop 4</h5>
+                                    <p>
+                                        Make their laptop wish come true with a high-res touchscreen, blazing fast
+                                        speed, and long battery life.
+                                    </p>
+                                    <button class="btn btn-outline-primary bg-primary">
+                                        <a href="https://www.microsoft.com/en-us/d/surface-pro-8/8qwcrtq8v8xg?icid=surface-carousel-1"
+                                           style="color:white;">
+                                            Buy now
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div style="width: 40%;height: 100%">
+                                    <img src="pc2.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-caption d-none d-md-block"
+                                     style="padding-left: 25%;color: black;width: 55%;height: 100%;font-family: 'Segoe UI',serif">
+                                    <h5>Save up to $500 on Surface Pro 8</h5>
+                                    <p>
+                                        Unwrap possibility with laptop power, tablet portability, and a large display
+                                        designed for pen and touch.
+                                    </p>
+                                    <button class="btn btn-outline-primary bg-primary text-bg-light">
+                                        <a href="https://www.microsoft.com/en-us/d/surface-pro-8/8qwcrtq8v8xg?icid=surface-carousel-1"
+                                           style="color:white;">
+                                            Buy now
+                                        </a>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="pc2.png" class="d-block w-100" alt="..." style="margin-left: 15%">
-                        </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="height: 25%"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
                             data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="height: 25%"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+            </div>
+        </div>
+        <div class="row" style="padding-left: 5%">
+            <div class="row">
+                <h1>For all the ways you create</h1>
+            </div>
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" aria-label="quick links">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav justify-content-center" style="background-color: white">
+                                <li>
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Compare.jpg?version=3bd1d210-023a-194e-de3b-43199e0c1c8c"
+                                             alt="..">
+                                    </picture>
+                                    <a target="_self" class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Compare devices from Microsoft Surface"
+                                       href="https://www.microsoft.com/en-us/surface/devices/compare-devices"
+                                       data-bi-id="n1c2m2r1a3" data-bi-name="compare devices" data-bi-type="text"
+                                       data-bi-bhvr="OTHER">
+                                        <span>Compare devices ></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_HelpMeChoose.jpg?version=8891907f-ff90-1a04-2df1-250a2b11a9d4">
+                                    </picture>
+                                    <a class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Help me choose a new surface by answering few questions"
+                                       href="https://www.microsoft.com/en-us/surface/devices/help-me-choose"
+                                       data-bi-id="n2c2m2r1a3" data-bi-name="help me choose" data-bi-type="text"
+                                       data-bi-bhvr="OTHER" target="_self">
+                                        <span>Help me choose ></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Deals.jpg?version=0b6d21dd-e2a6-f1e8-cc7f-34a141514d19">
+                                    </picture>
+                                    <a target="_self" class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Surface deals for Laptops and Tablets"
+                                       href="https://www.microsoft.com/en-us/store/b/surface-deals"
+                                       data-bi-id="n3c2m2r1a3" data-bi-name="surface deals"
+                                       data-bi-bhvr="PARTNERREFERRAL" data-bi-type="text" data-bi-prtnm="ms store"
+                                       data-bi-prod="surface deals">
+                                        <span>Surface deals ></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_WhySurface.png?version=026c6a01-80af-1f08-dad1-6de486da3e2e">
+                                    </picture>
+                                    <a target="_self" class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Why Surface devices are designed for every part of your life"
+                                       href="https://www.microsoft.com/en-us/surface/why-surface"
+                                       data-bi-id="n4c2m2r1a3" data-bi-name="why surface" data-bi-type="text"
+                                       data-bi-bhvr="OTHER">
+                                        <span>Why Surface ></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Education.jpg?version=1b0c8927-642f-f117-bb6c-ae8afe6469d3">
+                                    </picture>
+                                    <a class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Surface for Education information from Microsoft"
+                                       href="https://www.microsoft.com/en-us/surface/business/education"
+                                       data-bi-id="n5c2m2r1a3" data-bi-name="surface for education" data-bi-type="text"
+                                       data-bi-bhvr="OTHER" target="_self">
+                                        <span>Surface for Education ></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <picture aria-hidden="true">
+                                        <img src="https://c.s-microsoft.com/en-us/CMSImages/Surface_F22_Home_LinkNav_Business.jpg?version=abc137e7-fb77-9719-bf47-d424ec2d3614">
+                                    </picture>
+                                    <a class="mscom-link c-call-to-action c-glyph f-lightweight"
+                                       aria-label="Surface for Education information from Microsoft"
+                                       href="https://www.microsoft.com/en-us/surface/business/education"
+                                       data-bi-id="n5c2m2r1a3" data-bi-name="surface for education" data-bi-type="text"
+                                       data-bi-bhvr="OTHER" target="_self">
+                                        <span>Surface for Education ></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
     </div>
@@ -402,6 +526,7 @@
 </div>
 </body>
 <script src="../../../bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
+<script src="../../../MDB5-STANDARD-UI-KIT-Free-6.0.1/js/mdb.min.js"></script>
 <!-- MDB -->
 <script
         type="text/javascript"
