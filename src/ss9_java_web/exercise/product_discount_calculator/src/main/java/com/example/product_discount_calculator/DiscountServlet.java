@@ -23,11 +23,6 @@ public class DiscountServlet extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
         requestDispatcher.forward(request, response);
-//        PrintWriter out = response.getWriter();
-//        out.println("<html><body>");
-//        out.println("<p>" + productDescription + "<p>");
-//        out.println("<h1>" + discountAmount + "</h1>");
-//        out.println("</body></html>");
     }
 
 }
