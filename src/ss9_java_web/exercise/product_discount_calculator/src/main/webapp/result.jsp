@@ -11,10 +11,8 @@
   <title>Product Discount</title>
 </head>
 <body>
-<p>Product Description: ${product_description}</p>
-<p>List Price: ${list_price}</p>
-<p>Discount Percent: ${discount_percent}</p>
 <p>Discount amount: ${discount_amount}</p>
+<p>Discount price: ${discount_price}</p>
 <p></p>
 <p></p>
 </body>
