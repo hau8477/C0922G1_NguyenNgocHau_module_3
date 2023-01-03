@@ -1,4 +1,4 @@
-package com.example.customermanagement;
+package com.example.customermanagement.config;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;

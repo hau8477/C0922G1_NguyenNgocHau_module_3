@@ -9,9 +9,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error 404</title>
 </head>
 <body>
-
+<h1 style="color: red">NOT FOUND</h1>
 </body>
 </html>

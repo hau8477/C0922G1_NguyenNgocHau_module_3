@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76288ad7-e3fa-438b-aeee-067056c26dc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ss8_bootstrap/exercise/building_landing_page/.idea/building_landing_page.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/java_web/styles_furama.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/java_web/styles_furama.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/java_web/view_web.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/java_web/view_web.html" afterDir="false" />
-    </list>
+    <list default="true" id="76288ad7-e3fa-438b-aeee-067056c26dc7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +9,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JcQlom0qN1P7B6OHm9g0ucFqml" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -25,7 +24,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src/ss10_jsp_jstl"
+    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src/ss11_mvc/practice/customer-management"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -37,6 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672375044979</updated>
       <workItem from="1672375046120" duration="44000" />
+      <workItem from="1672730784865" duration="296000" />
     </task>
     <servers />
   </component>
