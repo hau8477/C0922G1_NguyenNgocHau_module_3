@@ -16,7 +16,7 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
     <style>
-        a{
+        a {
             color: white;
         }
     </style>
@@ -32,7 +32,8 @@
 <form method="post">
     <div class="mb-3">
         <label for="id" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp" value="${product.getId()}">
+        <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp"
+               value="${product.getId()}">
     </div>
     <div class="mb-3">
         <label for="nameProduct" class="form-label">Name product</label>

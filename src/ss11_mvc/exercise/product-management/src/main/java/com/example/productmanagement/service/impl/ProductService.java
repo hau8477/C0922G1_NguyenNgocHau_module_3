@@ -12,11 +12,12 @@ public class ProductService implements IProductService {
     private static final Map<Integer, Product> products = new HashMap<>();
 
     static {
-        products.put(1,new Product(1,"Iphone 4",400,"Điện thoại","Iphone"));
-        products.put(2,new Product(2,"Iphone 5",500,"Điện thoại","Iphone"));
-        products.put(3,new Product(3,"Samsung",10000,"Điện thoại","Samsung"));
-        products.put(4,new Product(4,"Iphone 13",30000,"Điện thoại","Iphone"));
+        products.put(1, new Product(1, "Iphone 4", 400, "Điện thoại", "Iphone"));
+        products.put(2, new Product(2, "Iphone 5", 500, "Điện thoại", "Iphone"));
+        products.put(3, new Product(3, "Samsung", 10000, "Điện thoại", "Samsung"));
+        products.put(4, new Product(4, "Iphone 13", 30000, "Điện thoại", "Iphone"));
     }
+
     @Override
     public List<Product> findAllProduct() {
         return new ArrayList<>(products.values());
@@ -24,12 +25,12 @@ public class ProductService implements IProductService {
 
     @Override
     public void saveProduct(Product product) {
-        products.put(product.getId(),product);
+        products.put(product.getId(), product);
     }
 
     @Override
     public void updateProduct(int id, Product product) {
-        products.put(id,product);
+        products.put(id, product);
     }
 
     @Override
@@ -41,8 +42,8 @@ public class ProductService implements IProductService {
     public List<Product> findByName(String nameProduct) {
         List<Product> products1 = new ArrayList<>(products.values());
         List<Product> products2 = new ArrayList<>();
-        for (Product product:products1) {
-            if(nameProduct.equals(product.getNameProduct())){
+        for (Product product : products1) {
+            if (product.getNameProduct().equals(nameProduct)) {
                 products2.add(product);
             }
         }

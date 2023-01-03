@@ -19,7 +19,8 @@
         #id, #nameProduct, #prices, #describe, #brand {
             width: 30%;
         }
-        a{
+
+        a {
             color: white;
         }
     </style>
