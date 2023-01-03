@@ -16,7 +16,7 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
     <style>
-        h1{
+        h1 {
             text-align: center;
         }
     </style>
@@ -28,11 +28,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="btn btn-primary nav-link active" aria-current="page" href="product?action=create">Create new product</a>
+                    <a class="btn btn-primary nav-link active" aria-current="page" href="product?action=create">Create
+                        new product</a>
                 </li>
             </ul>
             <form action="product?action=find" class="d-flex" role="search" method="get">
-                <input class="form-control me-2" type="search" placeholder="Search product" aria-label="Search" name="search">
+                <input class="form-control me-2" type="search" placeholder="Search product" aria-label="Search"
+                       name="search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -49,16 +51,16 @@
         <td>Edit</td>
         <td>Delete</td>
     </tr>
-    <c:forEach var="product" items='${requestScope["products"]}' varStatus="stt">
+    <c:forEach items='${requestScope["products"]}' var="product" varStatus="stt">
         <tr>
             <td>${stt.count}</td>
-            <td>${product.getID()}</td>
-            <td><a href="/product?action=view&id=${product.getId()}">${product.getName()}</a></td>
+            <td>${product.getId()}</td>
+            <td><a href="product?action=view&id=${product.getId()}">${product.getNameProduct()}</a></td>
             <td>${product.getPrices()}</td>
             <td>${product.getDescribe()}</td>
             <td>${product.getBrand()}</td>
-            <td><a href="/product?action=edit&id=${product.getId()}">edit</a></td>
-            <td><a href="/product?action=delete&id=${product.getId()}">delete</a></td>
+            <td><a href="product?action=edit&id=${product.getId()}">edit</a></td>
+            <td><a href="product?action=delete&id=${product.getId()}">delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -1,7 +1,6 @@
 package com.example.productmanagement.model;
 
 public class Product {
-    // Các thuộc tính của sản phẩm bao gồm: id, tên sản phẩm, giá sản phẩm, mô tả của sản phẩm, nhà sản xuất.
     private int id;
     private String nameProduct;
     private double prices;
@@ -31,7 +30,7 @@ public class Product {
         return nameProduct;
     }
 
-    public void setName(String nameProduct) {
+    public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
 
