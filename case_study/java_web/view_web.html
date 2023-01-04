@@ -15,146 +15,148 @@
 <body>
 <div class="container-fluid">
     <!--  Header-->
-    <div class="row height-30">
-        <div class="row bg-body justify-content-between">
+    <div class="row bg-secondary">
+        <div class="row justify-content-between col-md-12">
             <div class="col-md-3">
-                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt="logo" class="img-fluid"
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt="logo"
                      id="logo">
             </div>
-            <div class="col-md-3 d-flex justify-content-center align-items-center">
+            <div class="col-md-3 d-flex align-items-center">
                 <h3>Nguyễn Ngọc Hậu</h3>
             </div>
         </div>
-        <div class="col-md-12 bg-secondary text-white">
-            <div class="d-flex justify-content-around">
-                <nav class="navbar navbar-expand-lg bg-body-secondary">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Employee
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Customer
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" role="button" data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        Service
-                                    </a>
-                                    <ul class="dropdown-menu navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                Villa
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Villa service list</a></li>
-                                                <li><a class="dropdown-item" href="#">Add new villa service</a></li>
-                                                <li><a class="dropdown-item" href="#">Edit villa service</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete villa service</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                House
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">House service list</a></li>
-                                                <li><a class="dropdown-item" href="#">Add new house service</a></li>
-                                                <li><a class="dropdown-item" href="#">Edit house service</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete house service</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                Room
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Room service list</a></li>
-                                                <li><a class="dropdown-item" href="#">Add new room service</a></li>
-                                                <li><a class="dropdown-item" href="#">Edit room service</a></li>
-                                                <li><a class="dropdown-item" href="#">Delete room service</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link disabled">Contact</a>
-                                </li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarCenteredExample"
+                        aria-controls="navbarCenteredExample"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div
+                        class="collapse navbar-collapse justify-content-center"
+                        id="navbarCenteredExample"
+                >
+                    <!-- Left links -->
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Employee
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">List employee</a></li>
+                                <li><a class="dropdown-item" href="#">Add new employee</a></li>
+                                <li><a class="dropdown-item" href="#">Edit employee</a></li>
+                                <li><a class="dropdown-item" href="#">Delete employee</a></li>
                             </ul>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Customer
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">List customer</a></li>
+                                <li><a class="dropdown-item" href="#">Add new customer</a></li>
+                                <li><a class="dropdown-item" href="#">Edit customer</a></li>
+                                <li><a class="dropdown-item" href="#">Delete customer</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div id="menu">
+                                    <ul>
+                                        <li><a href="#">Villa</a>
+                                            <ul>
+                                                <li><a href="#">List villa</a></li>
+                                                <li><a href="#">Add new villa</a></li>
+                                                <li><a href="#">Edit villa</a></li>
+                                                <li><a href="#">Delete villa</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">House</a>
+                                            <ul>
+                                                <li><a href="#">List house</a></li>
+                                                <li><a href="#">Add new house</a></li>
+                                                <li><a href="#">Edit house</a></li>
+                                                <li><a href="#">Delete house</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Room</a>
+                                            <ul>
+                                                <li><a href="#">List room</a></li>
+                                                <li><a href="#">Add new room</a></li>
+                                                <li><a href="#">Edit room</a></li>
+                                                <li><a href="#">Delete room</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Contract</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    </ul>
+                    <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
             </div>
-        </div>
+            <!-- Container wrapper -->
+        </nav>
     </div>
 
     <!--  Container-->
     <div class="height-50">
         <div class="row container height-100">
-            <div>
-                <div class="col-md-4 height-100">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item One</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item Two</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item Three</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item Four</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-8 height-100">
+            <div class=" d-flex align-items-start col-md-4">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8 height-100">
 
-                </div>
             </div>
         </div>
-
     </div>
+
     <!--  Footer-->
     <div class="row footer">
-        <div class="col-md-12">
-            <footer class="bg-secondary text-white">
+        <div class="col-md-12 bg-secondary">
+            <footer class=" text-white">
                 <!-- Grid container -->
                 <div class="container p-4">
                     <!--Grid row-->
