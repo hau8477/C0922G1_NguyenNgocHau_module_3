@@ -1,61 +1,42 @@
 package com.example.productmanagement.service.impl;
 
 import com.example.productmanagement.model.Product;
+import com.example.productmanagement.repository.IProductRepository;
+import com.example.productmanagement.repository.impl.ProductRepository;
 import com.example.productmanagement.service.IProductService;
 
 import java.util.*;
 
 public class ProductService implements IProductService {
-    private static final Map<Integer, Product> products = new HashMap<>();
-
-    static {
-        products.put(1, new Product(1, "Iphone 4", 400, "Điện thoại", "Iphone"));
-        products.put(2, new Product(2, "Iphone 5", 500, "Điện thoại", "Iphone"));
-        products.put(3, new Product(3, "Samsung", 10000, "Điện thoại", "Samsung"));
-        products.put(4, new Product(4, "Iphone 13", 30000, "Điện thoại", "Iphone"));
-    }
+    private final IProductRepository productRepository = new ProductRepository();
 
     @Override
     public List<Product> findAllProduct() {
-        return new ArrayList<>(products.values());
+        return this.productRepository.findAllProduct();
     }
 
     @Override
     public void saveProduct(Product product) {
-        products.put(product.getId(), product);
+        this.productRepository.saveProduct(product);
     }
 
     @Override
     public void updateProduct(int id, Product product) {
-        products.put(id, product);
+        this.productRepository.updateProduct(id, product);
     }
 
     @Override
     public void removeProduct(int id) {
-        products.remove(id);
+        this.productRepository.removeProduct(id);
     }
 
     @Override
     public List<Product> findByName(String nameProduct) {
-        List<Product> products1 = new ArrayList<>(products.values());
-        List<Product> products2 = new ArrayList<>();
-        if (Objects.equals(nameProduct, "")) {
-            return products2;
-        }
-        String[] nameChar = nameProduct.toLowerCase().split(" ");
-        for (Product product : products1) {
-            for (String s : nameChar) {
-                if (product.getNameProduct().toLowerCase().contains(s)) {
-                    products2.add(product);
-                    break;
-                }
-            }
-        }
-        return products2;
+        return this.productRepository.findByName(nameProduct);
     }
 
     @Override
     public Product findById(int id) {
-        return products.get(id);
+        return this.productRepository.findById(id);
     }
 }

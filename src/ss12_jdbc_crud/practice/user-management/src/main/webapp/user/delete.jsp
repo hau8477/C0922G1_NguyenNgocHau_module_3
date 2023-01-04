@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Edit user</title>
+    <title>Delete user</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -26,17 +26,12 @@
     </style>
 </head>
 <body>
-<h1>Edit user</h1>
-<p>
-    <c:if test="${requestScope['message'] != null}">
-        <span id="mess" class="message">${requestScope['message']}</span>
-    </c:if>
-</p>
+<h1>Delete user</h1>
 <button type="button" class="btn btn-primary"><a href="user">List user</a></button>
-<form action="user?action=edit" method="post">
+<form action="user?action=delete" method="post">
     <div class="mb-3">
         <label for="id" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp"
+        <input type="hidden" class="form-control" id="id" name="id" aria-describedby="emailHelp"
                value="${user.getId()}">
     </div>
     <div class="mb-3">
@@ -54,7 +49,7 @@
         <input type="text" class="form-control" id="country" name="country" aria-describedby="emailHelp"
                value="${user.getCountry()}">
     </div>
-    <button type="submit" class="btn btn-primary">Update user</button>
+    <button type="submit" class="btn btn-primary">Delete user</button>
 </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
