@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "delete":
-                showDeleteForm(request,response);
+                showDeleteForm(request, response);
                 break;
             default:
                 listUser(request, response);
@@ -41,7 +41,7 @@ public class UserServlet extends HttpServlet {
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        User user = this.userService.selectUser(id);
+        User user = this.userService.selectUserById(id);
 
         if (user == null) {
             try {
@@ -62,7 +62,7 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        User user = this.userService.selectUser(id);
+        User user = this.userService.selectUserById(id);
 
         if (user == null) {
             try {
@@ -104,11 +104,60 @@ public class UserServlet extends HttpServlet {
                 editUser(request, response);
                 break;
             case "delete":
-                deleteUser(request,response);
+                deleteUser(request, response);
+                break;
+            case "find":
+                findUser(request, response);
+                break;
+            case "sort":
+                sortByNameUser(request, response);
                 break;
             default:
                 listUser(request, response);
                 break;
+        }
+    }
+
+    private void sortByNameUser(HttpServletRequest request, HttpServletResponse response) {
+        List<User> users = this.userService.sortByNameUser();
+
+        request.setAttribute("users", users);
+
+        if (users == null) {
+            try {
+                request.getRequestDispatcher("user/error-404.jsp").forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                request.getRequestDispatcher("user/sort.jsp").forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void findUser(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("country");
+
+        List<User> users = this.userService.selectUserByCountry(country);
+
+        request.setAttribute("users", users);
+
+        if (users == null) {
+            try {
+                request.getRequestDispatcher("user/error-404.jsp").forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                request.getRequestDispatcher("user/result-search.jsp").forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

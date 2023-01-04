@@ -23,8 +23,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User selectUser(int id) {
-        return this.userRepository.selectUser(id);
+    public User selectUserById(int id) {
+        return this.userRepository.selectUserById(id);
     }
 
     @Override
@@ -51,5 +51,15 @@ public class UserService implements IUserService {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public List<User> selectUserByCountry(String country) {
+        return this.userRepository.selectUserByCountry(country);
+    }
+
+    @Override
+    public List<User> sortByNameUser() {
+        return this.userRepository.sortByNameUser();
     }
 }
