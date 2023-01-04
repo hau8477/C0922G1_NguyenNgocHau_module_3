@@ -3,10 +3,7 @@ package com.example.productmanagement.service.impl;
 import com.example.productmanagement.model.Product;
 import com.example.productmanagement.service.IProductService;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProductService implements IProductService {
     private static final Map<Integer, Product> products = new HashMap<>();
@@ -42,10 +39,13 @@ public class ProductService implements IProductService {
     public List<Product> findByName(String nameProduct) {
         List<Product> products1 = new ArrayList<>(products.values());
         List<Product> products2 = new ArrayList<>();
-        String[] nameChar = nameProduct.split(" ");
+        if (Objects.equals(nameProduct, "")) {
+            return products2;
+        }
+        String[] nameChar = nameProduct.toLowerCase().split(" ");
         for (Product product : products1) {
             for (String s : nameChar) {
-                if (product.getNameProduct().contains(s)) {
+                if (product.getNameProduct().toLowerCase().contains(s)) {
                     products2.add(product);
                     break;
                 }
