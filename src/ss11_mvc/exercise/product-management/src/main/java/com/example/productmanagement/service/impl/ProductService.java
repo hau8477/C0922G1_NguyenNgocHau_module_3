@@ -42,9 +42,13 @@ public class ProductService implements IProductService {
     public List<Product> findByName(String nameProduct) {
         List<Product> products1 = new ArrayList<>(products.values());
         List<Product> products2 = new ArrayList<>();
+        String[] nameChar = nameProduct.split(" ");
         for (Product product : products1) {
-            if (product.getNameProduct().equals(nameProduct)) {
-                products2.add(product);
+            for (String s : nameChar) {
+                if (product.getNameProduct().contains(s)) {
+                    products2.add(product);
+                    break;
+                }
             }
         }
         return products2;
