@@ -35,9 +35,6 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 viewProduct(request, response);
                 break;
-            case "find":
-                findProduct(request, response);
-                break;
             default:
                 listProduct(request, response);
                 break;
@@ -149,6 +146,9 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "delete":
                 deleteProduct(request, response);
+                break;
+            case "find":
+                findProduct(request, response);
                 break;
             default:
                 listProduct(request, response);

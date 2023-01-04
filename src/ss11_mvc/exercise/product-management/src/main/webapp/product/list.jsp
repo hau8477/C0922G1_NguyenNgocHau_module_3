@@ -32,10 +32,10 @@
                         new product</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search" method="post">
+            <form class="d-flex" role="search" method="post" action="product?action=find">
                 <input class="form-control me-2" type="text" placeholder="Search product"
                        name="nameProduct" id="nameProduct">
-                <button class="btn btn-outline-success" type="button"><a href="product?action=find">Search</a></button>
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
     </div>
