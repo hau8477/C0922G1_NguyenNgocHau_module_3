@@ -29,9 +29,6 @@ public class UserServlet extends HttpServlet {
             case "edit":
                 showEditForm(request, response);
                 break;
-            case "delete":
-                showDeleteForm(request, response);
-                break;
             case "permision":
                 addUserPermision(request, response);
                 break;
@@ -61,27 +58,6 @@ public class UserServlet extends HttpServlet {
         int[] permision = {1, 2, 4};
 
         this.userService.addUserTransaction(user, permision);
-    }
-
-    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        User user = this.userService.getUserById(id);
-
-        if (user == null) {
-            try {
-                request.getRequestDispatcher("user/error-404.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                request.setAttribute("user", user);
-                request.getRequestDispatcher("user/delete.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
@@ -156,7 +132,7 @@ public class UserServlet extends HttpServlet {
             }
         } else {
             try {
-                request.getRequestDispatcher("user/sort.jsp").forward(request, response);
+                request.getRequestDispatcher("user/list.jsp").forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -179,7 +155,7 @@ public class UserServlet extends HttpServlet {
             }
         } else {
             try {
-                request.getRequestDispatcher("user/result-search.jsp").forward(request, response);
+                request.getRequestDispatcher("user/list.jsp").forward(request, response);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
