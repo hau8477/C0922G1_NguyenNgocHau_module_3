@@ -29,7 +29,7 @@ public class UserRepository implements IUserRepository {
     private static final String SELECT_ALL_USER_STORE = "{CALL find_all_users()}";
 
     private static final String DELETE_USER_STORE = "{CALL delete_user(?)}";
-    private static final String INSERT_USER_PERMISION = "INSERT IN TO user_permision(user_id, permision_id) VALUES(?,?)";
+    private static final String INSERT_USER_PERMISION = "INSERT INTO user_permision(user_id, permision_id) VALUES(?,?)";
 
     private static final String SQL_INSERT = "INSERT INTO employee (name, salary, create_date) VALUES (?,?,?)";
 
@@ -264,7 +264,7 @@ public class UserRepository implements IUserRepository {
                 PreparedStatement preparedStatementAssigment = connection.prepareStatement(INSERT_USER_PERMISION);
                 for (int permisionId : permisions) {
                     preparedStatementAssigment.setInt(1, userId);
-                    preparedStatementAssigment.setInt(1, permisionId);
+                    preparedStatementAssigment.setInt(2, permisionId);
                     preparedStatementAssigment.executeUpdate();
                 }
                 connection.commit();
