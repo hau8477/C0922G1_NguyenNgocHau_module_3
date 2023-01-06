@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="calculator:jar">
+    <output-path>$PROJECT_DIR$/ss14_dependency_management_packaging/practice</output-path>
+    <root id="archive" name="calculator.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

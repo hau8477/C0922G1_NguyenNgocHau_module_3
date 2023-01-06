@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/ss10_jsp_jstl/exercise/calculator" />
+    <file type="web" url="file://$PROJECT_DIR$/ss10_jsp_jstl/exercise/list-customer" />
+    <file type="web" url="file://$PROJECT_DIR$/ss11_mvc/exercise/product-management" />
+    <file type="web" url="file://$PROJECT_DIR$/ss11_mvc/practice/customer-management" />
+    <file type="web" url="file://$PROJECT_DIR$/ss12_jdbc_crud/user-management" />
+    <file type="web" url="file://$PROJECT_DIR$/ss13_transaction/user-management" />
+    <file type="web" url="file://$PROJECT_DIR$/ss9_java_web/exercise/product_discount_calculator" />
+    <file type="web" url="file://$PROJECT_DIR$/ss9_java_web/practice/java_web_currency_converter" />
+    <file type="web" url="file://$PROJECT_DIR$/ss9_java_web/practice/simple_dictionary" />
+    <file type="web" url="file://$PROJECT_DIR$/ss9_java_web/practice/simple_login" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK" />
+</project>

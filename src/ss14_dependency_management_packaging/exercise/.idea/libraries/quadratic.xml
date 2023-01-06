@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="quadratic">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/quadratic.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

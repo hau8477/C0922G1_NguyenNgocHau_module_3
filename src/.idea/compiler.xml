@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="calculator.main" target="1.8" />
+      <module name="calculator.test" target="1.8" />
+      <module name="customer-management.main" target="1.8" />
+      <module name="customer-management.test" target="1.8" />
+      <module name="java_web_currency_converter.main" target="1.8" />
+      <module name="java_web_currency_converter.test" target="1.8" />
+      <module name="list-customer.main" target="1.8" />
+      <module name="list-customer.test" target="1.8" />
+      <module name="product-management.main" target="1.8" />
+      <module name="product-management.test" target="1.8" />
+      <module name="simple_dictionary.main" target="1.8" />
+      <module name="simple_dictionary.test" target="1.8" />
+      <module name="ss13_transaction.user-management.main" target="1.8" />
+      <module name="ss13_transaction.user-management.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
