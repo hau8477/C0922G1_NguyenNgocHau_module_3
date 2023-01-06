@@ -82,7 +82,7 @@
             <form action="/user?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="idDelete" name="id">
-                    <span>Bạn chắc chắn có muốn xóa  <span id="nameDelete"></span> </span>
+                    <span>Bạn chắc chắn có muốn xóa  <span id="nameDelete" style="color: red"></span> </span>
 
                 </div>
                 <div class="modal-footer">
