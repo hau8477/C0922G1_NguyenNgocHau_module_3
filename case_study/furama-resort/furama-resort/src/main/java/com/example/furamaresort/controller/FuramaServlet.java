@@ -5,8 +5,6 @@ import com.example.furamaresort.model.EducationDegree;
 import com.example.furamaresort.model.Position;
 import com.example.furamaresort.model.person.inheritance.Customer;
 import com.example.furamaresort.model.person.inheritance.Employee;
-import com.example.furamaresort.repository.impl.EmployeeRepository;
-import com.example.furamaresort.service.IService;
 import com.example.furamaresort.service.impl.CustomerService;
 import com.example.furamaresort.service.impl.EmployeeService;
 
@@ -31,10 +29,10 @@ public class FuramaServlet extends HttpServlet {
 
         switch (action) {
             case "employee":
-                showListEmployee(request, response);
+                showHomeEmployee(request, response);
                 break;
             case "customer":
-                showListCustomer(request, response);
+                showHomeCustomer(request, response);
                 break;
             default:
                 request.getRequestDispatcher("home/home.jsp").forward(request, response);
@@ -42,7 +40,7 @@ public class FuramaServlet extends HttpServlet {
         }
     }
 
-    private void showListCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void showHomeCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.selectAllObject();
         request.setAttribute("customers", customers);
         try {
@@ -52,7 +50,7 @@ public class FuramaServlet extends HttpServlet {
         }
     }
 
-    private void showListEmployee(HttpServletRequest request, HttpServletResponse response) {
+    private void showHomeEmployee(HttpServletRequest request, HttpServletResponse response) {
         List<Employee> employees = this.employeeService.selectAllObject();
         List<Position> positions = this.employeeService.selectPosition();
         List<EducationDegree> educationDegrees = this.employeeService.selectEducationDegree();

@@ -17,6 +17,28 @@ import java.util.List;
 public class EmployeeRepository implements IRepository<Employee> {
     @Override
     public boolean insertObject(Employee o) {
+        Connection connection = BaseRepository.getConnectionDatabase();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employee(name," +
+                    " day_of_birth, id_card, salary, phone_number, email, address, position_id, education_degree_id,\n" +
+                    "                      division_id)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?,\n" +
+                    "        ?, ?, ?, ?)");
+            preparedStatement.setString(1,o.getName());
+            preparedStatement.setString(2,o.getDayOfBirth());
+            preparedStatement.setString(3,o.getIdCard());
+            preparedStatement.setDouble(4,o.getSalary());
+            preparedStatement.setInt(5,o.getPhoneNumber());
+            preparedStatement.setString(6,o.getEmail());
+            preparedStatement.setString(7,o.getAddress());
+            preparedStatement.setInt(8,o.getPositionId());
+            preparedStatement.setInt(9,o.getEducationDegreeId());
+            preparedStatement.setInt(10,o.getDivisionId());
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 
@@ -61,6 +83,29 @@ public class EmployeeRepository implements IRepository<Employee> {
 
     @Override
     public boolean updateObject(Employee o) {
+        Connection connection = BaseRepository.getConnectionDatabase();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "UPDATE employee SET name = ?, day_of_birth = ?, id_card = ?," +
+                    " phone_number = ?, salary = ?, \n" +
+                    "email = ?, address = ?, position_id = ?, education_degree_id = ?," +
+                    " division_id = ? WHERE id = ?; ");
+            preparedStatement.setString(1,o.getName());
+            preparedStatement.setString(2,o.getDayOfBirth());
+            preparedStatement.setString(3,o.getIdCard());
+            preparedStatement.setInt(4,o.getPhoneNumber());
+            preparedStatement.setDouble(5,o.getSalary());
+            preparedStatement.setString(6,o.getEmail());
+            preparedStatement.setString(7,o.getAddress());
+            preparedStatement.setInt(8,o.getPositionId());
+            preparedStatement.setInt(9,o.getEducationDegreeId());
+            preparedStatement.setInt(10,o.getDivisionId());
+            preparedStatement.setInt(11,o.getId());
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

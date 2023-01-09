@@ -126,7 +126,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="navbarDropdown1" role="button"
-                                aria-expanded="false" href="furama?action=employee">
+                               aria-expanded="false" href="furama?action=employee">
                                 Employee
                             </a>
                         </li>
@@ -194,9 +194,13 @@
         <center>
             <h1>
                 List Employee
+
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Add new employee
                 </button>
+                <div>
+                    <span style="color: darkcyan;font-size: 50%">${mess}</span>
+                </div>
             </h1>
             <table class="table table-striped">
                 <tr>
@@ -212,6 +216,8 @@
                     <td>Position</td>
                     <td>Education degree</td>
                     <td>Division</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </tr>
                 <c:forEach items='${requestScope["employees"]}' var="employee" varStatus="stt">
                     <tr>
@@ -227,6 +233,17 @@
                         <td>${employee.getPosition()}</td>
                         <td>${employee.getEducationDegree()}</td>
                         <td>${employee.getDivision()}</td>
+                        <td>
+                            <button onclick="infoEmployee('${employee.getId()}', '${employee.getName()}',
+                                    '${employee.getDayOfBirth()}', '${employee.getIdCard()}', '${employee.getSalary()}',
+                                    '${employee.getPhoneNumber()}', '${employee.getEmail()}', '${employee.getAddress()}',
+                                    '${employee.getPosition()}', '${employee.getEducationDegree()}',
+                                    '${employee.getDivision()}'
+                                    )" type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal1">
+                                Edit
+                            </button>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
@@ -309,54 +326,170 @@
         </div>
     </div>
 </div>
+
+<%--Modal create--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Create employee</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Create employee</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="furama?action=create" method="post">
+                <form action="employee?action=create" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="VD: Nguyễn Văn An">
+                               placeholder="VD: Nguyễn Văn An" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Day of birth</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="1970-11-07">
+                        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="1970-11-07"
+                               name="dayOfBirth">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail2" class="form-label">ID card</label>
                         <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
-                        placeholder="VD: 13549681324">
+                               placeholder="VD: 13549681324" name="idCard">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Salary</label>
                         <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"
-                        placeholder="400000000">
+                               placeholder="400000000" name="salary">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail4" class="form-label">Phone number</label>
                         <input type="number" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp"
-                        placeholder="VD: 4562317861">
+                               placeholder="VD: 4562317861" name="phoneNumber">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail5" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp"
-                        placeholder="VD: annguyen@gamil.com">
+                               placeholder="VD: annguyen@gamil.com" name="email">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Address</label>
                         <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp"
-                        placeholder="VD: 22 Yên Bái, Đà Nẵng">
+                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Position</label>
+                        <select class="nav-item dropdown" name="positionId">
+                            <c:forEach items="${positions}" var="position">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${position.getId()}">${position.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Education degree</label>
+                        <select class="nav-item dropdown" name="educationDegreeId">
+                            <c:forEach items="${educationDegrees}" var="educationDegree">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${educationDegree.getId()}">${educationDegree.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Division</label>
+                        <select class="nav-item dropdown" name="divisionId">
+                            <c:forEach items="${divisions}" var="division">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${division.getId()}">${division.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save employee</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save employee</button>
+        </div>
+    </div>
+</div>
+
+<%--Modal edit--%>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit employee</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="employee?action=update" method="post">
+                    <input type="int" hidden id="id1" name="id1">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                               placeholder="VD: Nguyễn Văn An" name="name" value="${employee.getName()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Day of birth</label>
+                        <input type="date" class="form-control" id="dayOfBirth" placeholder="1970-11-07"
+                               name="dayOfBirth" value="${employee.getDayOfBirth()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">ID card</label>
+                        <input type="text" class="form-control" id="idCard" aria-describedby="emailHelp"
+                               placeholder="VD: 13549681324" name="idCard" value="${employee.getIdCard()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Salary</label>
+                        <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
+                               placeholder="400000000" name="salary" value="${employee.getSalary()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail4" class="form-label">Phone number</label>
+                        <input type="number" class="form-control" id="phoneNumber" aria-describedby="emailHelp"
+                               placeholder="VD: 4562317861" name="phoneNumber" value="${employee.getPhoneNumber()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail5" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                               placeholder="VD: annguyen@gamil.com" name="email" value="${employee.getEmail()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" aria-describedby="emailHelp"
+                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address" value="${employee.getAddress()}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Position</label>
+                        <select class="nav-item dropdown" name="positionId">
+                            <option value="" id="position"></option>
+                            <c:forEach items="${positions}" var="position">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${position.getId()}">${position.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Education degree</label>
+                        <select class="nav-item dropdown" name="educationDegreeId">
+                            <option value="" id="educationDegree"></option>
+                            <c:forEach items="${educationDegrees}" var="educationDegree">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${educationDegree.getId()}">${educationDegree.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Division</label>
+                        <select class="nav-item dropdown" name="divisionId">
+                            <option value="" id="division"></option>
+                            <c:forEach items="${divisions}" var="division">
+                                <option class="nav-link dropdown-toggle"
+                                        value="${division.getId()}">${division.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update employee</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -364,5 +497,23 @@
 </body>
 <script src="../bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
 <script src="../MDB5-STANDARD-UI-KIT-Free-6.0.1/js/mdb.min.js"></script>
+<script>
+
+    function infoEmployee(id, name, dayOfBirth, idCard, salary, phoneNumber, email, address, position, educationDegree,
+                          division) {
+        document.getElementById("id1").value = id;
+        document.getElementById("name").value = name;
+        document.getElementById("dayOfBirth").value = dayOfBirth;
+        document.getElementById("idCard").value = idCard;
+        document.getElementById("salary").value = salary;
+        document.getElementById("phoneNumber").value = phoneNumber;
+        document.getElementById("email").value = email;
+        document.getElementById("address").value = address;
+        document.getElementById("position").value = position;
+        document.getElementById("educationDegree").value = educationDegree;
+        document.getElementById("division").value = division;
+    }
+
+</script>
 </html>
 

@@ -19,6 +19,16 @@ public class Employee extends Person {
     public Employee() {
     }
 
+    public Employee(String name, String dayOfBirth, String idCard, int phoneNumber, String email,
+                    double salary, String address,int positionId, int educationDegreeId, int divisionId) {
+        super(name, dayOfBirth, idCard, phoneNumber, email);
+        this.salary = salary;
+        this.address = address;
+        this.positionId = positionId;
+        this.educationDegreeId = educationDegreeId;
+        this.divisionId = divisionId;
+    }
+
     public Employee(String name, String dayOfBirth, boolean gender, String idCard, int phoneNumber, String email, int id, String educationDegree, String position, double salary, String division, String address) {
         super(name, dayOfBirth, gender, idCard, phoneNumber, email);
         this.id = id;
