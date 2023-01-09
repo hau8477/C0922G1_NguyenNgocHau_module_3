@@ -4,121 +4,121 @@ DATABASE furama_resort;
 USE
 furama_resort;
 
-CREATE TABLE vi_tri
+CREATE TABLE position
 (
-    ma_vi_tri  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_vi_tri VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE trinh_do
+CREATE TABLE education_degree
 (
-    ma_trinh_do  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_trinh_do VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE bo_phan
+CREATE TABLE division
 (
-    ma_bo_phan  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_bo_phan VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE nhan_vien
+CREATE TABLE employee
 (
-    ma_nhan_vien  INT AUTO_INCREMENT PRIMARY KEY,
-    ho_ten        VARCHAR(45),
-    ngay_sinh     DATE,
-    so_cmnd       VARCHAR(45),
-    luong         DOUBLE,
-    so_dien_thoai VARCHAR(45),
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(45),
+    day_of_birth     DATE,
+    id_card       VARCHAR(45),
+    salary         DOUBLE,
+    phone_number VARCHAR(45),
     email         VARCHAR(45),
-    dia_chi       VARCHAR(45),
-    ma_vi_tri     INT,
-    ma_trinh_do   INT,
-    ma_bo_phan    INT,
-    FOREIGN KEY (ma_vi_tri) REFERENCES vi_tri (ma_vi_tri),
-    FOREIGN KEY (ma_trinh_do) REFERENCES trinh_do (ma_trinh_do),
-    FOREIGN KEY (ma_bo_phan) REFERENCES bo_phan (ma_bo_phan)
+    address       VARCHAR(45),
+    position_id     INT,
+    education_degree_id   INT,
+    division_id    INT,
+    FOREIGN KEY (position_id) REFERENCES position (id),
+    FOREIGN KEY (education_degree_id) REFERENCES education_degree (id),
+    FOREIGN KEY (division_id) REFERENCES division (id)
 );
 
-CREATE TABLE loai_khach
+CREATE TABLE customer_type
 (
-    ma_loai_khach  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_loai_khach VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE khach_hang
+CREATE TABLE customer
 (
-    ma_khach_hang INT AUTO_INCREMENT PRIMARY KEY,
-    ma_loai_khach INT,
-    FOREIGN KEY (ma_loai_khach) REFERENCES loai_khach (ma_loai_khach),
-    ho_ten        VARCHAR(45),
-    ngay_sinh     DATE,
-    gioi_tinh     BIT(1),
-    so_cmnd       VARCHAR(45),
-    so_dien_thoai VARCHAR(45),
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_type_id INT,
+    FOREIGN KEY (customer_type_id) REFERENCES customer_type (id),
+    name        VARCHAR(45),
+    day_of_birth     DATE,
+    gender     BIT(1),
+    id_card       VARCHAR(45),
+    phone_number INT(45),
     email         VARCHAR(45),
-    dia_chi       VARCHAR(45)
+    address       VARCHAR(45)
 );
 
-CREATE TABLE loai_dich_vu
+CREATE TABLE facility_type
 (
-    ma_loai_dich_vu  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_loai_dich_vu VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE kieu_thue
+CREATE TABLE rent_type
 (
-    ma_kieu_thue  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_kieu_thue VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45)
 );
 
-CREATE TABLE dich_vu
+CREATE TABLE facility
 (
-    ma_dich_vu              INT AUTO_INCREMENT PRIMARY KEY,
-    ten_dich_vu             VARCHAR(45),
-    dien_tich               INT,
-    chi_phi_thue            DOUBLE,
-    so_nguoi_toi_da         INT,
-    ma_kieu_thue            INT,
-    ma_loai_dich_vu         INT,
-    FOREIGN KEY (ma_kieu_thue) REFERENCES kieu_thue (ma_kieu_thue),
-    FOREIGN KEY (ma_loai_dich_vu) REFERENCES loai_dich_vu (ma_loai_dich_vu),
-    tieu_chuan_phong        VARCHAR(45),
-    mo_ta_tien_nghi_khac    VARCHAR(45),
-    dien_tich_ho_boi        DOUBLE,
-    so_tang                 INT,
-    dich_vu_mien_phi_di_kem TEXT
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    name             VARCHAR(45),
+    area               INT,
+    cost            DOUBLE,
+    max_people         INT,
+    rent_type_id            INT,
+    facility_type_id         INT,
+    FOREIGN KEY (rent_type_id) REFERENCES rent_type (id),
+    FOREIGN KEY (facility_type_id) REFERENCES facility_type (id),
+    standard_room        VARCHAR(45),
+    description_other_convenience    VARCHAR(45),
+    pool_area        DOUBLE,
+    number_of_floors                 INT,
+    facility_free TEXT
 );
 
-CREATE TABLE hop_dong
+CREATE TABLE contract
 (
-    ma_hop_dong       INT AUTO_INCREMENT PRIMARY KEY,
-    ngay_lam_hop_dong DATETIME,
-    ngay_ket_thuc     DATETIME,
-    tien_dat_coc      DOUBLE,
-    ma_nhan_vien      INT,
-    ma_khach_hang     INT,
-    ma_dich_vu        INT,
-    FOREIGN KEY (ma_nhan_vien) REFERENCES nhan_vien (ma_nhan_vien),
-    FOREIGN KEY (ma_khach_hang) REFERENCES khach_hang (ma_khach_hang),
-    FOREIGN KEY (ma_dich_vu) REFERENCES dich_vu (ma_dich_vu)
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    start_date DATETIME,
+    end_date     DATETIME,
+    deposit      DOUBLE,
+    employee_id      INT,
+    customer_id     INT,
+    facility_id        INT,
+    FOREIGN KEY (employee_id) REFERENCES employee (id),
+    FOREIGN KEY (customer_id) REFERENCES customer (id),
+    FOREIGN KEY (facility_id) REFERENCES facility (id)
 );
 
-CREATE TABLE dich_vu_di_kem
+CREATE TABLE attach_facility
 (
-    ma_dich_vu_di_kem  INT AUTO_INCREMENT PRIMARY KEY,
-    ten_dich_vu_di_kem VARCHAR(45),
-    gia                DOUBLE,
-    don_vi             VARCHAR(10),
-    trang_thai         VARCHAR(45)
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45),
+    cost                DOUBLE,
+    unit             VARCHAR(10),
+    status         VARCHAR(45)
 );
 
-CREATE TABLE hop_dong_chi_tiet
+CREATE TABLE contract_detail
 (
-    ma_hop_dong_chi_tiet INT AUTO_INCREMENT PRIMARY KEY,
-    ma_hop_dong          INT,
-    ma_dich_vu_di_kem    INT,
-    FOREIGN KEY (ma_hop_dong) REFERENCES hop_dong (ma_hop_dong),
-    FOREIGN KEY (ma_dich_vu_di_kem) REFERENCES dich_vu_di_kem (ma_dich_vu_di_kem),
-    so_luong             INT
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    contract_id          INT,
+    attach_facility_id    INT,
+    FOREIGN KEY (contract_id) REFERENCES contract (id),
+    FOREIGN KEY (attach_facility_id) REFERENCES attach_facility (id),
+    quantity             INT
 );
