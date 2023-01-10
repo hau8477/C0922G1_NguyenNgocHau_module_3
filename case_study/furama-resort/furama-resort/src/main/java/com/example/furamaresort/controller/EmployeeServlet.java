@@ -1,5 +1,8 @@
 package com.example.furamaresort.controller;
 
+import com.example.furamaresort.model.Division;
+import com.example.furamaresort.model.EducationDegree;
+import com.example.furamaresort.model.Position;
 import com.example.furamaresort.model.person.inheritance.Employee;
 import com.example.furamaresort.service.impl.EmployeeService;
 
@@ -35,11 +38,27 @@ public class EmployeeServlet extends HttpServlet {
                 updateEmployee(request, response);
                 break;
             case "delete":
-
+                deleteEmployee(request,response);
                 break;
             default:
 
                 break;
+        }
+    }
+
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("idDelete"));
+
+        request.setAttribute("mess", "Successfully delete!");
+        if (!this.employeeService.deleteObject(id)) {
+            request.setAttribute("mess", "Delete failure!");
+        }
+        List<Employee> employees = this.employeeService.selectAllObject();
+        request.setAttribute("employees", employees);
+        try {
+            request.getRequestDispatcher("employee/employee.jsp").forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -58,6 +77,13 @@ public class EmployeeServlet extends HttpServlet {
 
         Employee employee = new Employee(name, dayOfBirth, idCard, Integer.parseInt(phoneNumber), email, id,
                 salary, address, positionId, educationDegreeId, divisionId);
+        List<Position> positions = this.employeeService.selectPosition();
+        List<EducationDegree> educationDegrees = this.employeeService.selectEducationDegree();
+        List<Division> divisions = this.employeeService.selectDivision();
+
+        request.setAttribute("positions",positions);
+        request.setAttribute("educationDegrees",educationDegrees);
+        request.setAttribute("divisions",divisions);
 
         request.setAttribute("mess", "Successfully update!");
         if (!this.employeeService.updateObject(employee)) {

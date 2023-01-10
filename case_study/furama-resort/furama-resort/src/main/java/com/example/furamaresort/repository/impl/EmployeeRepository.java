@@ -111,6 +111,15 @@ public class EmployeeRepository implements IRepository<Employee> {
 
     @Override
     public boolean deleteObject(int id) {
+        Connection connection = BaseRepository.getConnectionDatabase();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM employee WHERE id = ?");
+            preparedStatement.setInt(1,id);
+            return preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

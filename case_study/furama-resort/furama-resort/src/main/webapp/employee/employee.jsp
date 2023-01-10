@@ -84,6 +84,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="library/bootstrap520/css/bootstrap.min.css">
+    <link rel="stylesheet" href="library/datatables/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -202,23 +204,27 @@
                     <span style="color: darkcyan;font-size: 50%">${mess}</span>
                 </div>
             </h1>
-            <table class="table table-striped">
+            <table id="tableEmployee" class="table table-striped">
+                <thead>
                 <tr>
-                    <td>STT</td>
-                    <td>ID</td>
-                    <td>Name</td>
-                    <td>Day of birth</td>
-                    <td>ID card</td>
-                    <td>Salary</td>
-                    <td>Phone number</td>
-                    <td>Email</td>
-                    <td>Address</td>
-                    <td>Position</td>
-                    <td>Education degree</td>
-                    <td>Division</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Day of birth</th>
+                    <th>ID card</th>
+                    <th>Salary</th>
+                    <th>Phone number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Education degree</th>
+                    <th>Division</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
+                </thead>
+
+                <tbody>
                 <c:forEach items='${requestScope["employees"]}' var="employee" varStatus="stt">
                     <tr>
                         <td>${stt.count}</td>
@@ -244,8 +250,16 @@
                                 Edit
                             </button>
                         </td>
+                        <td>
+                            <button onclick="infoDelete('${employee.getId()}', '${employee.getName()}')"
+                                    type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal3">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </center>
     </div>
@@ -376,8 +390,7 @@
                         <label for="exampleInputEmail6" class="form-label">Position</label>
                         <select class="nav-item dropdown" name="positionId">
                             <c:forEach items="${positions}" var="position">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${position.getId()}">${position.getName()}</option>
+                                <option value="${position.getId()}">${position.getName()}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -385,8 +398,7 @@
                         <label for="exampleInputEmail6" class="form-label">Education degree</label>
                         <select class="nav-item dropdown" name="educationDegreeId">
                             <c:forEach items="${educationDegrees}" var="educationDegree">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${educationDegree.getId()}">${educationDegree.getName()}</option>
+                                <option value="${educationDegree.getId()}">${educationDegree.getName()}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -394,8 +406,7 @@
                         <label for="exampleInputEmail6" class="form-label">Division</label>
                         <select class="nav-item dropdown" name="divisionId">
                             <c:forEach items="${divisions}" var="division">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${division.getId()}">${division.getName()}</option>
+                                <option value="${division.getId()}">${division.getName()}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -494,9 +505,46 @@
         </div>
     </div>
 </div>
+
+<!-- Modal delete -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel3">Delete employee</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="employee?action=delete" method="post">
+                    <input hidden type="number" id="idDelete" name="idDelete">
+                    <span>
+                        Bạn có chắc chắn muốn xóa <span style="color: red" id="nameDelete"></span>
+                    </span>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="../bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
 <script src="../MDB5-STANDARD-UI-KIT-Free-6.0.1/js/mdb.min.js"></script>
+<script src="library/jquery/jquery-3.5.1.min.js"></script>
+<script src="library/datatables/js/jquery.dataTables.min.js"></script>
+<script src="library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableEmployee').dataTable({
+                "dom": 'lrtip',
+                "lengthChange": false,
+                "pageLength": 6
+            }
+        )
+    })
+</script>
 <script>
 
     function infoEmployee(id, name, dayOfBirth, idCard, salary, phoneNumber, email, address, position, educationDegree,
@@ -512,6 +560,11 @@
         document.getElementById("position").value = position;
         document.getElementById("educationDegree").value = educationDegree;
         document.getElementById("division").value = division;
+    }
+
+    function infoDelete(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
     }
 
 </script>
