@@ -1,5 +1,6 @@
 package com.example.furamaresort.controller;
 
+import com.example.furamaresort.model.CustomerType;
 import com.example.furamaresort.model.Division;
 import com.example.furamaresort.model.EducationDegree;
 import com.example.furamaresort.model.Position;
@@ -42,6 +43,9 @@ public class FuramaServlet extends HttpServlet {
 
     private void showHomeCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.selectAllObject();
+        List<CustomerType> customerTypes = this.customerService.selectCustomerType();
+
+        request.setAttribute("customerTypes",customerTypes);
         request.setAttribute("customers", customers);
         try {
             request.getRequestDispatcher("customer/customer.jsp").forward(request, response);

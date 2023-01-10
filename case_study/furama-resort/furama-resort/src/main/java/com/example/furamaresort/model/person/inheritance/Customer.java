@@ -44,6 +44,19 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    public Customer(String name, String dayOfBirth, boolean gender, String idCard, int phoneNumber, String email, String address,int customerTypeId) {
+        super(name, dayOfBirth, gender, idCard, phoneNumber, email);
+        this.address = address;
+        this.customerTypeId = customerTypeId;
+    }
+
+    public Customer(String name, String dayOfBirth, boolean gender, String idCard, int phoneNumber, String email, String address,int customerTypeId, int id) {
+        super(name, dayOfBirth, gender, idCard, phoneNumber, email);
+        this.address = address;
+        this.customerTypeId = customerTypeId;
+        this.id = id;
+    }
+
     public Customer(String name, String dayOfBirth, String idCard, int phoneNumber, String email, int id, String customerType, String address) {
         super(name, dayOfBirth, idCard, phoneNumber, email);
         this.id = id;

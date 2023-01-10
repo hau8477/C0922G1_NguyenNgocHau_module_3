@@ -112,7 +112,13 @@ public class EmployeeServlet extends HttpServlet {
 
         Employee employee = new Employee(name, dayOfBirth, idCard, Integer.parseInt(phoneNumber), email,
                 salary, address, positionId, educationDegreeId, divisionId);
+        List<Position> positions = this.employeeService.selectPosition();
+        List<EducationDegree> educationDegrees = this.employeeService.selectEducationDegree();
+        List<Division> divisions = this.employeeService.selectDivision();
 
+        request.setAttribute("positions",positions);
+        request.setAttribute("educationDegrees",educationDegrees);
+        request.setAttribute("divisions",divisions);
         request.setAttribute("mess", "Successfully added new!");
 
         if (!this.employeeService.insertObject(employee)) {

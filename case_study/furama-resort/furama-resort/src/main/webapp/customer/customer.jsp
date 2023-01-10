@@ -84,6 +84,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+    <%--    Phân trang--%>
+    <link rel="stylesheet" href="library/bootstrap520/css/bootstrap.min.css">
+    <link rel="stylesheet" href="library/datatables/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -192,20 +195,34 @@
     <!--  Container-->
     <div>
         <center>
-            <h1>List Customer</h1>
-            <table class="table table-striped">
+            <h1>
+                List Customer
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add new customer
+                </button>
+                <div>
+                    <span style="color: darkcyan;font-size: 50%">${mess}</span>
+                </div>
+            </h1>
+            <table id="tableCustomer" class="table table-striped">
+                <thead>
                 <tr>
-                    <td>STT</td>
-                    <td>ID</td>
-                    <td>Customer type ID</td>
-                    <td>Name</td>
-                    <td>Day of birth</td>
-                    <td>Gender</td>
-                    <td>ID card</td>
-                    <td>Phone number</td>
-                    <td>Email</td>
-                    <td>Address</td>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Customer type ID</th>
+                    <th>Name</th>
+                    <th>Day of birth</th>
+                    <th>Gender</th>
+                    <th>ID card</th>
+                    <th>Phone number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
+                </thead>
+                <tbody>
                 <c:forEach items='${requestScope["customers"]}' var="customer" varStatus="stt">
                     <tr>
                         <td>${stt.count}</td>
@@ -225,8 +242,26 @@
                         <td>${customer.getPhoneNumber()}</td>
                         <td>${customer.getEmail()}</td>
                         <td>${customer.getAddress()}</td>
+                        <td>
+                            <button onclick="infoCustomer('${customer.getId()}', '${customer.getName()}',
+                                    '${customer.getDayOfBirth()}', '${customer.isGender()}', '${customer.getIdCard()}',
+                                    '${customer.getPhoneNumber()}', '${customer.getEmail()}', '${customer.getAddress()}',
+                                    '${employee.getCustomerType()}'
+                                    )" type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal1">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="infoDelete('${customer.getId()}', '${customer.getName()}')"
+                                    type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal3">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </center>
     </div>
@@ -307,7 +342,189 @@
         </div>
     </div>
 </div>
+
+
+<%--Modal create--%>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Create customer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="customer?action=create" method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                               placeholder="VD: Nguyễn Văn An" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Day of birth</label>
+                        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="1970-11-07"
+                               name="dayOfBirth">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Gender</label><br>
+                        <input type="radio" name="gender" checked value="Nam">Nam
+                        <input type="radio" name="gender" value="Nữ">Nữ
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">ID card</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
+                               placeholder="VD: 13549681324" name="idCard">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail4" class="form-label">Phone number</label>
+                        <input type="number" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp"
+                               placeholder="VD: 4562317861" name="phoneNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail5" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp"
+                               placeholder="VD: annguyen@gamil.com" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp"
+                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Customer type</label>
+                        <select class="nav-item dropdown" name="customerTypeId">
+                            <c:forEach items="${customerTypes}" var="customerType">
+                                <option value="${customerType.getId()}">${customerType.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save customer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%--Modal edit--%>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit customer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="customer?action=update" method="post">
+                    <input type="number" hidden id="id1" name="id1">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Full name</label>
+                        <input type="text" class="form-control" id="name1" aria-describedby="emailHelp"
+                               placeholder="VD: Nguyễn Văn An" name="name1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Day of birth</label>
+                        <input type="date" class="form-control" id="dayOfBirth1" placeholder="1970-11-07"
+                               name="dayOfBirth1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Gender</label><br>
+                        <input type="radio" name="gender1" checked value="Nam">Nam
+                        <input type="radio" name="gender1" value="Nữ">Nữ
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">ID card</label>
+                        <input type="text" class="form-control" id="idCard1" aria-describedby="emailHelp"
+                               placeholder="VD: 13549681324" name="idCard1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail4" class="form-label">Phone number</label>
+                        <input type="number" class="form-control" id="phoneNumber1" aria-describedby="emailHelp"
+                               placeholder="VD: 4562317861" name="phoneNumber1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail5" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email1" aria-describedby="emailHelp"
+                               placeholder="VD: annguyen@gamil.com" name="email1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address1" aria-describedby="emailHelp"
+                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail6" class="form-label">Customer type</label>
+                        <select class="nav-item dropdown" name="customerTypeId1">
+                            <c:forEach items="${customerTypes}" var="customerType">
+                                <option value="${customerType.getId()}">${customerType.getName()}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update customer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal delete-->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel3">Delete customer</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="customer?action=delete" method="post">
+                    <input hidden id="idDelete" name="idDelete">
+                    <span>
+                        Bạn có chắc chắn muốn xóa <span style="color: red" id="nameDelete"></span>
+                    </span>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="../bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
 <script src="../MDB5-STANDARD-UI-KIT-Free-6.0.1/js/mdb.min.js"></script>
+<%--Phân trang--%>
+<script src="library/jquery/jquery-3.5.1.min.js"></script>
+<script src="library/datatables/js/jquery.dataTables.min.js"></script>
+<script src="library/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+                "dom": 'lrtip',
+                "lengthChange": false,
+                "pageLength": 6
+            }
+        )
+    })
+</script>
+<script>
+    function infoCustomer(id, name, dayOfBirth,gender, idCard, phoneNumber, email, address, customerType) {
+        document.getElementById("id1").value = id;
+        document.getElementById("name1").value = name;
+        document.getElementById("dayOfBirth1").value = dayOfBirth;
+        document.getElementById("idCard1").value = idCard;
+        document.getElementById("phoneNumber1").value = phoneNumber;
+        document.getElementById("email1").value = email;
+        document.getElementById("address1").value = address;
+    }
+
+    function infoDelete(id,name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
+    }
+</script>
 </html>

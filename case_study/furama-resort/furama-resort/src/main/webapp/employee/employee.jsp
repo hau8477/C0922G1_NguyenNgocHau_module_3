@@ -84,6 +84,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+<%--    Phân trang--%>
     <link rel="stylesheet" href="library/bootstrap520/css/bootstrap.min.css">
     <link rel="stylesheet" href="library/datatables/css/dataTables.bootstrap5.min.css">
 </head>
@@ -469,7 +470,6 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Position</label>
                         <select class="nav-item dropdown" name="positionId">
-                            <option value="" id="position"></option>
                             <c:forEach items="${positions}" var="position">
                                 <option class="nav-link dropdown-toggle"
                                         value="${position.getId()}">${position.getName()}</option>
@@ -479,7 +479,6 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Education degree</label>
                         <select class="nav-item dropdown" name="educationDegreeId">
-                            <option value="" id="educationDegree"></option>
                             <c:forEach items="${educationDegrees}" var="educationDegree">
                                 <option class="nav-link dropdown-toggle"
                                         value="${educationDegree.getId()}">${educationDegree.getName()}</option>
@@ -489,7 +488,6 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Division</label>
                         <select class="nav-item dropdown" name="divisionId">
-                            <option value="" id="division"></option>
                             <c:forEach items="${divisions}" var="division">
                                 <option class="nav-link dropdown-toggle"
                                         value="${division.getId()}">${division.getName()}</option>
@@ -532,6 +530,8 @@
 </body>
 <script src="../bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
 <script src="../MDB5-STANDARD-UI-KIT-Free-6.0.1/js/mdb.min.js"></script>
+
+<%--Phân trang--%>
 <script src="library/jquery/jquery-3.5.1.min.js"></script>
 <script src="library/datatables/js/jquery.dataTables.min.js"></script>
 <script src="library/datatables/js/dataTables.bootstrap5.min.js"></script>
