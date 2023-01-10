@@ -1,13 +1,12 @@
 package com.example.furamaresort.controller;
 
-import com.example.furamaresort.model.CustomerType;
-import com.example.furamaresort.model.Division;
-import com.example.furamaresort.model.EducationDegree;
-import com.example.furamaresort.model.Position;
+import com.example.furamaresort.model.*;
+import com.example.furamaresort.model.facility.Facility;
 import com.example.furamaresort.model.person.inheritance.Customer;
 import com.example.furamaresort.model.person.inheritance.Employee;
 import com.example.furamaresort.service.impl.CustomerService;
 import com.example.furamaresort.service.impl.EmployeeService;
+import com.example.furamaresort.service.impl.FacilityService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,6 +18,8 @@ import java.util.List;
 public class FuramaServlet extends HttpServlet {
     private final EmployeeService employeeService = new EmployeeService();
     private final CustomerService customerService = new CustomerService();
+
+    private final FacilityService facilityService = new FacilityService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,9 +36,28 @@ public class FuramaServlet extends HttpServlet {
             case "customer":
                 showHomeCustomer(request, response);
                 break;
+            case "service":
+                showHomeService(request, response);
+                break;
             default:
                 request.getRequestDispatcher("home/home.jsp").forward(request, response);
                 break;
+        }
+    }
+
+    private void showHomeService(HttpServletRequest request, HttpServletResponse response) {
+        List<Facility> facilities = this.facilityService.selectAllObject();
+        List<FacilityType> facilityTypes = this.facilityService.selectFacilityType();
+        List<RentType> rentTypes = this.facilityService.selectRentType();
+
+        request.setAttribute("facilities",facilities);
+        request.setAttribute("facilityTypes",facilityTypes);
+        request.setAttribute("rentTypes",rentTypes);
+
+        try {
+            request.getRequestDispatcher("service/service.jsp").forward(request,response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -45,7 +65,7 @@ public class FuramaServlet extends HttpServlet {
         List<Customer> customers = this.customerService.selectAllObject();
         List<CustomerType> customerTypes = this.customerService.selectCustomerType();
 
-        request.setAttribute("customerTypes",customerTypes);
+        request.setAttribute("customerTypes", customerTypes);
         request.setAttribute("customers", customers);
         try {
             request.getRequestDispatcher("customer/customer.jsp").forward(request, response);
@@ -60,9 +80,9 @@ public class FuramaServlet extends HttpServlet {
         List<EducationDegree> educationDegrees = this.employeeService.selectEducationDegree();
         List<Division> divisions = this.employeeService.selectDivision();
 
-        request.setAttribute("positions",positions);
-        request.setAttribute("educationDegrees",educationDegrees);
-        request.setAttribute("divisions",divisions);
+        request.setAttribute("positions", positions);
+        request.setAttribute("educationDegrees", educationDegrees);
+        request.setAttribute("divisions", divisions);
         request.setAttribute("employees", employees);
         try {
             request.getRequestDispatcher("employee/employee.jsp").forward(request, response);

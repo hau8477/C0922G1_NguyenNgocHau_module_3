@@ -135,41 +135,11 @@
                                 Customer
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link" id="navbarDropdown3" role="button"
+                               aria-expanded="false" href="furama?action=service">
                                 Service
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <div id="menu">
-                                    <ul>
-                                        <li><a href="#">Villa</a>
-                                            <ul>
-                                                <li><a href="#">List villa</a></li>
-                                                <li><a href="#">Add new villa</a></li>
-                                                <li><a href="#">Edit villa</a></li>
-                                                <li><a href="#">Delete villa</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">House</a>
-                                            <ul>
-                                                <li><a href="#">List house</a></li>
-                                                <li><a href="#">Add new house</a></li>
-                                                <li><a href="#">Edit house</a></li>
-                                                <li><a href="#">Delete house</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Room</a>
-                                            <ul>
-                                                <li><a href="#">List room</a></li>
-                                                <li><a href="#">Add new room</a></li>
-                                                <li><a href="#">Edit room</a></li>
-                                                <li><a href="#">Delete room</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page">Contract</a>

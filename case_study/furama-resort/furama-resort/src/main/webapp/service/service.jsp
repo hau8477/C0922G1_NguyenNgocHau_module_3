@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: hi
-  Date: 1/9/2023
-  Time: 1:31 PM
+  Date: 1/10/2023
+  Time: 2:26 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>List employee</title>
+    <title>List service</title>
     <style>
         #logo {
             width: 15%;
@@ -84,7 +84,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
-<%--    Phân trang--%>
+    <%--    Phân trang--%>
     <link rel="stylesheet" href="library/bootstrap520/css/bootstrap.min.css">
     <link rel="stylesheet" href="library/datatables/css/dataTables.bootstrap5.min.css">
 </head>
@@ -166,63 +166,65 @@
     <div>
         <center>
             <h1>
-                List Employee
-
+                List Service
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Add new employee
+                    Add new service
                 </button>
                 <div>
                     <span style="color: darkcyan;font-size: 50%">${mess}</span>
                 </div>
             </h1>
-            <table id="tableEmployee" class="table table-striped">
+            <table id="tableService" class="table table-striped">
                 <thead>
                 <tr>
                     <th>STT</th>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Day of birth</th>
-                    <th>ID card</th>
-                    <th>Salary</th>
-                    <th>Phone number</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Position</th>
-                    <th>Education degree</th>
-                    <th>Division</th>
+                    <th>Area</th>
+                    <th>Cost</th>
+                    <th>Max people</th>
+                    <th>Rent type</th>
+                    <th>Facility type</th>
+                    <th>Standard room</th>
+                    <th>Description other convenience</th>
+                    <th>Pool area</th>
+                    <th>Number of floors</th>
+                    <th>Facility free</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <c:forEach items='${requestScope["employees"]}' var="employee" varStatus="stt">
+                <c:forEach items='${requestScope["facilities"]}' var="ficility" varStatus="stt">
                     <tr>
                         <td>${stt.count}</td>
-                        <td>${employee.getId()}</td>
-                        <td>${employee.getName()}</td>
-                        <td>${employee.getDayOfBirth()}</td>
-                        <td>${employee.getIdCard()}</td>
-                        <td>${employee.getSalary()}</td>
-                        <td>${employee.getPhoneNumber()}</td>
-                        <td>${employee.getEmail()}</td>
-                        <td>${employee.getAddress()}</td>
-                        <td>${employee.getPosition()}</td>
-                        <td>${employee.getEducationDegree()}</td>
-                        <td>${employee.getDivision()}</td>
+                        <td>${ficility.getId()}</td>
+                        <td>${ficility.getName()}</td>
+                        <td>${ficility.getArea()}</td>
+                        <td>${ficility.getCost()}</td>
+                        <td>${ficility.getMaxPeople()}</td>
+                        <td>${ficility.getRentType()}</td>
+                        <td>${ficility.getFacilityType()}</td>
+                        <td>${ficility.getStandardRoom()}</td>
+                        <td>${ficility.getDescriptionOtherConvenience()}</td>
+                        <td>${ficility.getPoolArea()}</td>
+                        <td>${ficility.getNumberOfFloors()}</td>
+                        <td>${ficility.getFacilityFree()}</td>
                         <td>
-                            <button onclick="infoEmployee('${employee.getId()}', '${employee.getName()}',
-                                    '${employee.getDayOfBirth()}', '${employee.getIdCard()}', '${employee.getSalary()}',
-                                    '${employee.getPhoneNumber()}', '${employee.getEmail()}', '${employee.getAddress()}',
-                                    '${employee.getPosition()}', '${employee.getEducationDegree()}',
-                                    '${employee.getDivision()}'
-                                    )" type="button" class="btn btn-warning" data-bs-toggle="modal"
+                            <button onclick="infoFacility('${ficility.getId()}','${ficility.getName()}',
+                                    '${ficility.getArea()}','${ficility.getCost()}','${ficility.getMaxPeople()}',
+                                    '${ficility.getRentType()}','${ficility.getFacilityType()}',
+                                    '${ficility.getStandardRoom()}','${ficility.getDescriptionOtherConvenience()}',
+                                    '${ficility.getPoolArea()}','${ficility.getNumberOfFloors()}',
+                                    '${ficility.getFacilityFree()}')" type="button" class="btn btn-warning"
+                                    data-bs-toggle="modal"
                                     data-bs-target="#exampleModal1">
                                 Edit
                             </button>
                         </td>
                         <td>
-                            <button onclick="infoDelete('${employee.getId()}', '${employee.getName()}')"
+                            <button onclick="infoDelete('${ficility.getId()}','${ficility.getName()}')"
                                     type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal3">
                                 Delete
@@ -317,73 +319,85 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel1">Create employee</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel1">Create service</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="employee?action=create" method="post">
+                <form action="service?action=create" method="post">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Full name</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="VD: Nguyễn Văn An" name="name">
+                        <label for="facilityTypeId" class="form-label">Facility type</label>
+                        <div class="mb-3">
+                            <label for="facilityTypeId" class="form-label"></label>
+                            <select onchange="hiddenInput()" class="nav-item dropdown" name="facilityTypeId"
+                                    id="facilityTypeId">
+                                <option></option>
+                                <c:forEach items="${facilityTypes}" var="facilityType">
+                                    <option value="${facilityType.getId()}">${facilityType.getName()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Day of birth</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="1970-11-07"
-                               name="dayOfBirth">
+                        <label for="nameService" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="nameService" aria-describedby="emailHelp"
+                               name="nameService">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail2" class="form-label">ID card</label>
-                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
-                               placeholder="VD: 13549681324" name="idCard">
+                        <label for="area" class="form-label">Area</label>
+                        <input type="number" class="form-control" id="area"
+                               name="area">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail3" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"
-                               placeholder="400000000" name="salary">
+                        <label for="cost" class="form-label">Cost</label>
+                        <input type="number" class="form-control" id="cost" aria-describedby="emailHelp"
+                               name="cost">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail4" class="form-label">Phone number</label>
-                        <input type="number" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp"
-                               placeholder="VD: 4562317861" name="phoneNumber">
+                        <label for="maxPeople" class="form-label">Max people</label>
+                        <input type="number" class="form-control" id="maxPeople" aria-describedby="emailHelp"
+                               name="maxPeople">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail5" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp"
-                               placeholder="VD: annguyen@gamil.com" name="email">
+                        <label for="rentType" class="form-label">Rent type</label>
+                        <div class="mb-3">
+                            <label for="rentType" class="form-label"></label>
+                            <select class="nav-item dropdown" name="rentType" id="rentType">
+                                <c:forEach items="${rentTypes}" var="rentType">
+                                    <option value="${rentType.getId()}">${rentType.getName()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp"
-                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address">
+                        <label for="standardRoom" class="form-label">Standard room</label>
+                        <input type="text" class="form-control" id="standardRoom" aria-describedby="emailHelp"
+                               name="standardRoom">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Position</label>
-                        <select class="nav-item dropdown" name="positionId">
-                            <c:forEach items="${positions}" var="position">
-                                <option value="${position.getId()}">${position.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="descriptionOtherConvenience" class="form-label">Description other
+                            convenience</label>
+                        <input type="text" class="form-control" id="descriptionOtherConvenience"
+                               aria-describedby="emailHelp"
+                               name="descriptionOtherConvenience">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Education degree</label>
-                        <select class="nav-item dropdown" name="educationDegreeId">
-                            <c:forEach items="${educationDegrees}" var="educationDegree">
-                                <option value="${educationDegree.getId()}">${educationDegree.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="poolArea" class="form-label">Pool area</label>
+                        <input type="number" class="form-control" id="poolArea" aria-describedby="emailHelp"
+                               name="poolArea">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Division</label>
-                        <select class="nav-item dropdown" name="divisionId">
-                            <c:forEach items="${divisions}" var="division">
-                                <option value="${division.getId()}">${division.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="numberOfFloors" class="form-label">Number of floors</label>
+                        <input type="number" class="form-control" id="numberOfFloors" aria-describedby="emailHelp"
+                               name="numberOfFloors">
+                    </div>
+                    <div class="mb-3">
+                        <label for="facilityFree" class="form-label">Facility free</label>
+                        <input type="text" class="form-control" id="facilityFree" aria-describedby="emailHelp"
+                               name="facilityFree">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save employee</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -396,77 +410,86 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit employee</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel2">Create service</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="employee?action=update" method="post">
-                    <input type="int" hidden id="id1" name="id1">
+                <form action="service?action=edit" method="post">
+                    <input type="number" id="idServiceEdit" hidden name="idServiceEdit">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Full name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                               placeholder="VD: Nguyễn Văn An" name="name" value="${employee.getName()}">
+                        <label for="facilityTypeId" class="form-label">Facility type</label>
+                        <div class="mb-3">
+                            <label for="facilityTypeId" class="form-label"></label>
+                            <select onchange="hiddenInput()" class="nav-item dropdown" name="facilityTypeIdEdit"
+                                    id="facilityTypeIdEdit">
+                                <option></option>
+                                <c:forEach items="${facilityTypes}" var="facilityType">
+                                    <option value="${facilityType.getId()}">${facilityType.getName()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Day of birth</label>
-                        <input type="date" class="form-control" id="dayOfBirth" placeholder="1970-11-07"
-                               name="dayOfBirth" value="${employee.getDayOfBirth()}">
+                        <label for="nameService" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="nameServiceEdit" aria-describedby="emailHelp"
+                               name="nameServiceEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail2" class="form-label">ID card</label>
-                        <input type="text" class="form-control" id="idCard" aria-describedby="emailHelp"
-                               placeholder="VD: 13549681324" name="idCard" value="${employee.getIdCard()}">
+                        <label for="area" class="form-label">Area</label>
+                        <input type="number" class="form-control" id="areaEdit"
+                               name="areaEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail3" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="salary" aria-describedby="emailHelp"
-                               placeholder="400000000" name="salary" value="${employee.getSalary()}">
+                        <label for="cost" class="form-label">Cost</label>
+                        <input type="number" class="form-control" id="costEdit" aria-describedby="emailHelp"
+                               name="costEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail4" class="form-label">Phone number</label>
-                        <input type="number" class="form-control" id="phoneNumber" aria-describedby="emailHelp"
-                               placeholder="VD: 4562317861" name="phoneNumber" value="${employee.getPhoneNumber()}">
+                        <label for="maxPeople" class="form-label">Max people</label>
+                        <input type="number" class="form-control" id="maxPeopleEdit" aria-describedby="emailHelp"
+                               name="maxPeopleEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail5" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                               placeholder="VD: annguyen@gamil.com" name="email" value="${employee.getEmail()}">
+                        <label for="rentType" class="form-label">Rent type</label>
+                        <div class="mb-3">
+                            <label for="rentType" class="form-label"></label>
+                            <select class="nav-item dropdown" name="rentTypeEdit" id="rentTypeEdit">
+                                <c:forEach items="${rentTypes}" var="rentType">
+                                    <option value="${rentType.getId()}">${rentType.getName()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" aria-describedby="emailHelp"
-                               placeholder="VD: 22 Yên Bái, Đà Nẵng" name="address" value="${employee.getAddress()}">
+                        <label for="standardRoom" class="form-label">Standard room</label>
+                        <input type="text" class="form-control" id="standardRoomEdit" aria-describedby="emailHelp"
+                               name="standardRoomEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Position</label>
-                        <select class="nav-item dropdown" name="positionId">
-                            <c:forEach items="${positions}" var="position">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${position.getId()}">${position.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="descriptionOtherConvenience" class="form-label">Description other
+                            convenience</label>
+                        <input type="text" class="form-control" id="descriptionOtherConvenienceEdit"
+                               aria-describedby="emailHelp"
+                               name="descriptionOtherConvenienceEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Education degree</label>
-                        <select class="nav-item dropdown" name="educationDegreeId">
-                            <c:forEach items="${educationDegrees}" var="educationDegree">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${educationDegree.getId()}">${educationDegree.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="poolArea" class="form-label">Pool area</label>
+                        <input type="number" class="form-control" id="poolAreaEdit" aria-describedby="emailHelp"
+                               name="poolAreaEdit">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail6" class="form-label">Division</label>
-                        <select class="nav-item dropdown" name="divisionId">
-                            <c:forEach items="${divisions}" var="division">
-                                <option class="nav-link dropdown-toggle"
-                                        value="${division.getId()}">${division.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="numberOfFloors" class="form-label">Number of floors</label>
+                        <input type="number" class="form-control" id="numberOfFloorsEdit" aria-describedby="emailHelp"
+                               name="numberOfFloorsEdit">
+                    </div>
+                    <div class="mb-3">
+                        <label for="facilityFree" class="form-label">Facility free</label>
+                        <input type="text" class="form-control" id="facilityFreeEdit" aria-describedby="emailHelp"
+                               name="facilityFreeEdit">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update employee</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
@@ -479,11 +502,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel3">Delete employee</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel3">Delete service</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="employee?action=delete" method="post">
+                <form action="service?action=delete" method="post">
                     <input hidden type="number" id="idDelete" name="idDelete">
                     <span>
                         Bạn có chắc chắn muốn xóa <span style="color: red" id="nameDelete"></span>
@@ -507,7 +530,7 @@
 <script src="library/datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#tableEmployee').dataTable({
+        $('#tableService').dataTable({
                 "dom": 'lrtip',
                 "lengthChange": false,
                 "pageLength": 6
@@ -516,20 +539,40 @@
     })
 </script>
 <script>
+    function hiddenInput() {
+        let choice = +document.getElementById("facilityTypeId").value;
 
-    function infoEmployee(id, name, dayOfBirth, idCard, salary, phoneNumber, email, address, position, educationDegree,
-                          division) {
-        document.getElementById("id1").value = id;
-        document.getElementById("name").value = name;
-        document.getElementById("dayOfBirth").value = dayOfBirth;
-        document.getElementById("idCard").value = idCard;
-        document.getElementById("salary").value = salary;
-        document.getElementById("phoneNumber").value = phoneNumber;
-        document.getElementById("email").value = email;
-        document.getElementById("address").value = address;
-        document.getElementById("position").value = position;
-        document.getElementById("educationDegree").value = educationDegree;
-        document.getElementById("division").value = division;
+        switch (choice) {
+            case 1:
+                document.getElementById("nameService").value = "Villa";
+                document.getElementById("facilityFree").disabled = true;
+                break;
+            case 2:
+                document.getElementById("nameService").value = "House";
+                document.getElementById("facilityFree").disabled = true;
+                break;
+            case 3:
+                document.getElementById("nameService").value = "Room";
+                document.getElementById("standardRoom").disabled = true;
+                document.getElementById("poolArea").disabled = true;
+                document.getElementById("numberOfFloors").disabled = true;
+                document.getElementById("facilityFree").disabled = false;
+                break;
+        }
+    }
+
+    function infoFacility(id, name, area, cost, maxPeople, rentTypeId, facilityTypeId, standardRoom,
+                          descriptionOtherConvenience, poolArea, numberOfFloors, facilityFree) {
+        document.getElementById("idServiceEdit").value = id;
+        document.getElementById("nameServiceEdit").value = name;
+        document.getElementById("areaEdit").value = area;
+        document.getElementById("costEdit").value = cost;
+        document.getElementById("maxPeopleEdit").value = maxPeople;
+        document.getElementById("standardRoomEdit").value = standardRoom;
+        document.getElementById("descriptionOtherConvenienceEdit").value = descriptionOtherConvenience;
+        document.getElementById("poolAreaEdit").value = poolArea;
+        document.getElementById("numberOfFloorsEdit").value = numberOfFloors;
+        document.getElementById("facilityFreeEdit").value = facilityFree;
     }
 
     function infoDelete(id, name) {
@@ -539,4 +582,3 @@
 
 </script>
 </html>
-
