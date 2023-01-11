@@ -4,7 +4,6 @@ import com.example.furamaresort.model.Division;
 import com.example.furamaresort.model.EducationDegree;
 import com.example.furamaresort.model.Position;
 import com.example.furamaresort.model.person.inheritance.Employee;
-import com.example.furamaresort.repository.IRepository;
 import com.example.furamaresort.repository.impl.EmployeeRepository;
 import com.example.furamaresort.service.IService;
 

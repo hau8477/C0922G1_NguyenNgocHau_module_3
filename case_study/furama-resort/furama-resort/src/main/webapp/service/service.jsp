@@ -546,10 +546,16 @@
             case 1:
                 document.getElementById("nameService").value = "Villa";
                 document.getElementById("facilityFree").disabled = true;
+                document.getElementById("standardRoom").disabled = false;
+                document.getElementById("poolArea").disabled = false;
+                document.getElementById("numberOfFloors").disabled = false;
                 break;
             case 2:
                 document.getElementById("nameService").value = "House";
                 document.getElementById("facilityFree").disabled = true;
+                document.getElementById("standardRoom").disabled = false;
+                document.getElementById("poolArea").disabled = false;
+                document.getElementById("numberOfFloors").disabled = false;
                 break;
             case 3:
                 document.getElementById("nameService").value = "Room";
@@ -558,6 +564,11 @@
                 document.getElementById("numberOfFloors").disabled = true;
                 document.getElementById("facilityFree").disabled = false;
                 break;
+            default:
+                document.getElementById("standardRoom").disabled = false;
+                document.getElementById("poolArea").disabled = false;
+                document.getElementById("numberOfFloors").disabled = false;
+                document.getElementById("facilityFree").disabled = false;
         }
     }
 

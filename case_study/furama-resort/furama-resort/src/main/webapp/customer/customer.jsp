@@ -327,7 +327,8 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="VD: Nguyễn Văn An" name="name">
+                               placeholder="VD: Nguyễn Văn An" name="name" required
+                               pattern="^[A-Z][a-z]*(\s[A-Z][a-z]*)*$" title="Tên phải viết hoa chữ cái đầu">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Day of birth</label>
@@ -352,7 +353,9 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail5" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp"
-                               placeholder="VD: annguyen@gamil.com" name="email">
+                               placeholder="VD: annguyen@gamil.com" name="email"
+                               pattern="^\p{Lu}\p{Ll}+(\s\p{Lu}\p{Ll}+)*|(?=.{1,64}@)[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$"
+                               title="Email chưa đúng định dạng" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Address</label>
@@ -391,7 +394,8 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Full name</label>
                         <input type="text" class="form-control" id="name1" aria-describedby="emailHelp"
-                               placeholder="VD: Nguyễn Văn An" name="name1">
+                               placeholder="VD: Nguyễn Văn An" name="name1" required
+                               pattern="^[A-Z][a-z]*(\s[A-Z][a-z]*)*$" title="Tên phải viết hoa chữ cái đầu">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Day of birth</label>
@@ -416,7 +420,9 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail5" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="email1" aria-describedby="emailHelp"
-                               placeholder="VD: annguyen@gamil.com" name="email1">
+                               placeholder="VD: annguyen@gamil.com" name="email1"
+                               pattern="^\p{Lu}\p{Ll}+(\s\p{Lu}\p{Ll}+)*|(?=.{1,64}@)[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$"
+                               title="Email chưa đúng định dạng" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail6" class="form-label">Address</label>
