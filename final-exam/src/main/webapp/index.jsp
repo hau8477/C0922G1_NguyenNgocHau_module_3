@@ -6,6 +6,6 @@
     <title></title>
 </head>
 <body>
-<c:redirect url="student"></c:redirect>
+
 </body>
 </html>

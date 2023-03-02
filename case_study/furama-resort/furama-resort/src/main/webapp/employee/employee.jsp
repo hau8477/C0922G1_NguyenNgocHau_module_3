@@ -492,7 +492,7 @@
             </div>
             <div class="modal-body">
                 <form action="employee?action=delete" method="post">
-                    <input hidden type="number" id="idDelete" name="idDelete">
+                    <input type="number" id="idDelete" name="idDelete">
                     <span>
                         Bạn có chắc chắn muốn xóa <span style="color: red" id="nameDelete"></span>
                     </span>
