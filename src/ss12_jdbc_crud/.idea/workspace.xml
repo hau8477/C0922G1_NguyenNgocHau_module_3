@@ -1,34 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5182ad2b-c5a7-4427-a304-7250e2318c36" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/config/FontFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/config/FontFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/controller/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/repository/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/repository/BaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/repository/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/repository/impl/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/repository/impl/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/java/com/example/usermanagement/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/java/com/example/usermanagement/service/impl/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/user/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/user/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/user/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/user/delete.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/user/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/user-management/src/main/webapp/user/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/user-management/src/main/webapp/user/list.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="5182ad2b-c5a7-4427-a304-7250e2318c36" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +9,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JqzkF6hqIan38hwRViSY5iT7XZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -48,7 +24,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src/ss12_jdbc_crud/user-management"
+    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src/ss12_jdbc_crud"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -65,6 +41,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672820541128</updated>
       <workItem from="1672820542379" duration="29000" />
+      <workItem from="1679843294230" duration="55000" />
     </task>
     <servers />
   </component>
