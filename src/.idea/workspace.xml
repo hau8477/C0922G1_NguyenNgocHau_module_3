@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b70b4cd-1509-4463-9f38-150f93f3d1e8" name="Changes" comment="" />
+    <list default="true" id="3b70b4cd-1509-4463-9f38-150f93f3d1e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +88,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src/ss14_dependency_management_packaging/practice",
+    "last_opened_file_path": "D:/CodeGym/C0922G1/module3/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,6 +108,7 @@
       <updated>1672977806090</updated>
       <workItem from="1672977807265" duration="140000" />
       <workItem from="1672978552411" duration="424000" />
+      <workItem from="1683680857545" duration="150000" />
     </task>
     <servers />
   </component>
